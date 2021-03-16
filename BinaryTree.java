@@ -80,6 +80,7 @@ public class BinaryTree<T> implements BinaryTreeInterface<T> {
      * traversal) all nodes in the "whole" tree
      */
     public void postorderTraverse() {
+        postorderTraverse(root);
     }
     
     /**
@@ -87,6 +88,12 @@ public class BinaryTree<T> implements BinaryTreeInterface<T> {
      * traversal) all nodes in the subtree rooted at this node.
      */
     private void postorderTraverse(BinaryNode<T> node) {
+        if(node != null)
+        {
+            postorderTraverse(node.getLeftChild());
+            postorderTraverse(node.getRightChild());
+            System.out.println(node.getData());
+        }
     }
     
     /**
