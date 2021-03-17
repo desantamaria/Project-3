@@ -102,6 +102,7 @@ public class BinaryTree<T> implements BinaryTreeInterface<T> {
      * nodes in the "whole" tree
      */
     public void postorderTraverse_callBinaryNodeMethod() {
+        root.postorderTraverse_binaryNodeMethod(root);
     }
     
     /* -------------------------------------------------------------------- */
