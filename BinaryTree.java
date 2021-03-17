@@ -142,7 +142,9 @@ public class BinaryTree<T> implements BinaryTreeInterface<T> {
      * @return The height of the "whole" tree.
      */
     public int getHeight_callBinaryNodeMethod() {
-        return 0;
+        int height = 0;
+        height = root.getHeight_binaryNodeMethod();
+        return height;
     } // end getHeight_callBinaryNodeMethod
     
     /* -------------------------------------------------------------------- */
