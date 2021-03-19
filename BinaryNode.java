@@ -1,3 +1,14 @@
+/**
+@author Daniel Santamaria
+@author Renwell Queyquep
+CS2400
+3/18/21 
+ */
+
+/**
+ * A class of nodes whose entries has at most two children.
+ * One Left Child and One Right Child. 
+ */
 class BinaryNode<T> {
     private T data;
     private BinaryNode<T> leftChild;  // Reference to left child
@@ -116,23 +127,20 @@ class BinaryNode<T> {
         return newRoot;
     } // end copy
     
-    /* --------------------------------------------------------------------
-     * Part of Task 1 */
     /**
      * A Recursive Method in the BinaryNode Class prints (using post-order
      * traversal) all nodes of the subtree rooted at "this" node
+     * 
+     * @param node The root node from the BinaryTree to be passed through
      */
     public void postorderTraverse_binaryNodeMethod(BinaryNode<T> node) {
-        if(node != null)
-        {
+        if(node != null) {
             postorderTraverse_binaryNodeMethod(node.getLeftChild());
             postorderTraverse_binaryNodeMethod(node.getRightChild());
             System.out.println(node.getData());
-        }
-    }
+        } // end if
+    } // end postorderTraverse_binaryNodeMethod
     
-    /*--------------------------------------------------------------------
-     * Part of Task 2*/
     /**
      * A Recursive Method in the BinaryNode Class Computes the height of the
      * subtree rooted at "this" node.
@@ -146,7 +154,7 @@ class BinaryNode<T> {
         
         if (data == null) {
             return 0;
-        }    
+        } // end it  
 
         if(leftChild !=null)
             leftHeight = leftChild.getHeight_binaryNodeMethod();
@@ -157,7 +165,6 @@ class BinaryNode<T> {
         return height;
     } // end getHeight
     
-    /* -------------------------------------------------------------------- */
     /**
      * A Recursive Method in the BinaryNode Class Counts the nodes in the
      * subtree rooted at "this" node.
