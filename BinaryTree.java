@@ -24,24 +24,12 @@ public class BinaryTree<T> implements BinaryTreeInterface<T> {
         initializeTree(rootData, leftTree, rightTree);
     } // end constructor
     
-    /**
-     * Creates new tree out of pre-existing trees.
-     *
-     * @param rootData The data that is to be set as the root node.
-     * @param leftTree A pre-existing tree that is to be set as the Left tree. 
-     * @param rightTree A pre-existing tree that is to be set as the Right tree.
-     */
     public void setTree(T rootData, BinaryTreeInterface<T> leftTree,
                         BinaryTreeInterface<T> rightTree) {
         initializeTree(rootData, (BinaryTree<T>) leftTree,
                 (BinaryTree<T>) rightTree);
     } // end setTree
     
-    /**
-     * Sets the desired data as the root node.
-     *
-     * @param rootData The data that is to be set as the root node.
-     */
     public void setRootData(T rootData) {
         root.setData(rootData);
     } // end setRootData
