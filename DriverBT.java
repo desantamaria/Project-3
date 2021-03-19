@@ -1,3 +1,13 @@
+/**
+@author Daniel Santamaria
+@author Renwell Queyquep
+CS2400
+3/18/21 
+ */
+
+/**
+ * A class that tests the functionality of the Binary Tree methods.
+ */
 import org.junit.Test;
 
 public class DriverBT {
