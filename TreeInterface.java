@@ -9,6 +9,7 @@ CS2400
  * An interface of a tree whose entries are stored in nodes that can 
  * have children/parents.
  */
+
 public interface TreeInterface<T> {
     public T getRootData();
     

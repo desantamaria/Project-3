@@ -8,6 +8,7 @@ CS2400
 /**
  * A class that tests the functionality of the Binary Tree methods.
  */
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.Test;
 

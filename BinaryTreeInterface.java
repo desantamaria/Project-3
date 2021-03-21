@@ -9,6 +9,7 @@ CS2400
  * An interface of a tree whose entries are stored in nodes that can 
  * have at max two children.
  */
+
 public interface BinaryTreeInterface<T> extends TreeInterface<T> {
     /**
      * Sets the data in the root of this binary tree.

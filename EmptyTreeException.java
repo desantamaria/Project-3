@@ -8,6 +8,7 @@ CS2400
 /**
  * A class that throws an exception when the tree is empty.
  */
+
 public class EmptyTreeException extends RuntimeException {
     /**
      *

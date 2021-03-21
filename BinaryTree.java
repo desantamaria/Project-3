@@ -9,6 +9,7 @@ CS2400
  * A class of trees whose entries are stored in binary nodes 
  * in which each node has at most two children. 
  */
+
 public class BinaryTree<T> implements BinaryTreeInterface<T> {
     private BinaryNode<T> root;
     

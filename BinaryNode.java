@@ -9,6 +9,7 @@ CS2400
  * A class of nodes whose entries has at most two children.
  * One Left Child and One Right Child. 
  */
+
 class BinaryNode<T> {
     private T data;
     private BinaryNode<T> leftChild;  // Reference to left child
