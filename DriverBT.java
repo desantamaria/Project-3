@@ -1,5 +1,3 @@
-import org.junit.Test;
-
 public class DriverBT {
     public static void main(String[] args) {
         System.out.println("1st Testing Example:");
