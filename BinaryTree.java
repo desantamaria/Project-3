@@ -113,6 +113,8 @@ public class BinaryTree<T> implements BinaryTreeInterface<T> {
      * traversal) all nodes in the "whole" tree
      */
     public void postorderTraverse() {
+        if (isEmpty())
+            throw new EmptyTreeException();
         postorderTraverse(root);
     } // end postorderTraverse
     
@@ -120,7 +122,7 @@ public class BinaryTree<T> implements BinaryTreeInterface<T> {
      * A Recursive Method in the BinaryTree Class prints (using post-order
      * traversal) all nodes in the subtree rooted at this node.
      */
-    private void postorderTraverse(BinaryNode<T> node) {
+    private void postorderTraverse(BinaryNode<T> node) {        
         if(node != null) {
             postorderTraverse(node.getLeftChild());
             postorderTraverse(node.getRightChild());
@@ -134,6 +136,8 @@ public class BinaryTree<T> implements BinaryTreeInterface<T> {
      * nodes in the "whole" tree
      */
     public void postorderTraverse_callBinaryNodeMethod() {
+        if (isEmpty())
+            throw new EmptyTreeException();
         root.postorderTraverse_binaryNodeMethod(root);
     } // end postorderTraverse_callBinaryNodeMethod
     
@@ -143,6 +147,8 @@ public class BinaryTree<T> implements BinaryTreeInterface<T> {
      * @return The height of the "whole" tree
      */
     public int getHeight() {
+        if (isEmpty())
+            throw new EmptyTreeException();
         return getHeight(root);
     } // end getHeight
     
@@ -167,6 +173,8 @@ public class BinaryTree<T> implements BinaryTreeInterface<T> {
      * @return The height of the "whole" tree.
      */
     public int getHeight_callBinaryNodeMethod() {
+        if (isEmpty())
+            throw new EmptyTreeException();
         return root.getHeight_binaryNodeMethod();
     } // end getHeight_callBinaryNodeMethod
     
@@ -176,6 +184,8 @@ public class BinaryTree<T> implements BinaryTreeInterface<T> {
      * @return The number of nodes in the "whole" tree
      */
     public int getNumberOfNodes() {
+        if (isEmpty())
+            throw new EmptyTreeException();
         return getNumberOfNodes(root);
     } // end getNumberOfNodes
     
@@ -208,6 +218,8 @@ public class BinaryTree<T> implements BinaryTreeInterface<T> {
      * @return The number of nodes in the "whole" tree.
      */
     public int getNumberOfNodes_callBinaryNodeMethod() {
+        if (isEmpty())
+            throw new EmptyTreeException();
         int numberOfNodes = 0;
         if (root != null)
             numberOfNodes = root.getNumberOfNodes_binaryNodeMethod();
