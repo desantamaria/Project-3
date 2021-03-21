@@ -9,6 +9,11 @@ CS2400
  * A class that throws an exception when the tree is empty.
  */
 public class EmptyTreeException extends RuntimeException {
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+
     public EmptyTreeException() {
         this(null);
     } // end default constructor
