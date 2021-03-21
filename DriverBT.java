@@ -8,6 +8,7 @@ CS2400
 /**
  * A class that tests the functionality of the Binary Tree methods.
  */
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.Test;
 
 public class DriverBT {
@@ -71,7 +72,7 @@ public class DriverBT {
         
         tree.setTree("A", bTree, cTree);
         
-        System.out.println("\nGiven Tree:\n");
+        System.out.println("\nGiven Tree 1:\n");
         System.out.println("     A      ");
         System.out.println("   /   \\  ");
         System.out.println("  B     C  ");
@@ -100,7 +101,7 @@ public class DriverBT {
         
         tree.setTree("A", bTree, cTree);
 
-        System.out.println("\nGiven Tree:\n");
+        System.out.println("\nGiven Tree 2:\n");
         System.out.println("     A           ");
         System.out.println("   /   \\        ");
         System.out.println("  B     C        ");
@@ -110,4 +111,48 @@ public class DriverBT {
         System.out.println("    F     G     H");
     } // end createTree2
     
+    public static void testTreeA(BinaryTree<String> tree) {
+        //Leaves 
+        BinaryTree<String> bTree = new BinaryTree<>("B");
+        BinaryTree<String> cTree = new BinaryTree<>("C");
+        
+        tree.setTree("A", bTree, cTree);
+
+        System.out.println("\nTest Tree A:\n");
+        System.out.println("     A           ");
+        System.out.println("   /   \\        ");
+        System.out.println("  B     C        ");
+    } // end testTreeA
+
+    @Test
+    public void testGetHeightTest() {
+        BinaryTree<String> exampleOne = new BinaryTree<>();
+        createTree1(exampleOne);
+        
+        BinaryTree<String> exampleTwo = new BinaryTree<>();
+        createTree2(exampleTwo);
+
+        BinaryTree<String> testTreeA = new BinaryTree<>();
+        testTreeA(testTreeA);
+
+        assertEquals(4, exampleOne.getHeight());
+        assertEquals(4, exampleTwo.getHeight());
+        assertEquals(2, testTreeA.getHeight());
+    }
+
+    @Test(expected = EmptyTreeException.class)
+    public void testEmptyTreeException() {
+        BinaryTree<String> testTreeEmpty = new BinaryTree<>();
+        System.out.println("created empty tree ...");
+        
+        testTreeEmpty.postorderTraverse();
+        testTreeEmpty.postorderTraverse_callBinaryNodeMethod();
+
+        testTreeEmpty.getHeight();
+        testTreeEmpty.getHeight_callBinaryNodeMethod();
+
+        testTreeEmpty.getNumberOfNodes();
+        testTreeEmpty.getNumberOfNodes_callBinaryNodeMethod();
+    }
+
 }  // end DriverBT
