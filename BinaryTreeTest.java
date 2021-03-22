@@ -56,6 +56,14 @@ public class BinaryTreeTest {
         return tree3;
     }
 
+    public BinaryTree<String> createTestTree4()
+    {
+        BinaryTree<String> tree4 = new BinaryTree<>();
+        tree4.setTree("A", null, null);
+
+        return tree4;
+    }
+
     @Test
     public void testGetNumberOfNodes()
     {
@@ -68,6 +76,10 @@ public class BinaryTreeTest {
         assertEquals(8, Tree1.getNumberOfNodes());
         assertEquals(4, Tree2.getNumberOfNodes());
         assertEquals(4, Tree3.getNumberOfNodes());
+
+        assertEquals(8, Tree1.getNumberOfNodes_callBinaryNodeMethod());
+        assertEquals(4, Tree2.getNumberOfNodes_callBinaryNodeMethod());
+        assertEquals(4, Tree3.getNumberOfNodes_callBinaryNodeMethod());
     }
 
     @Test
@@ -75,10 +87,17 @@ public class BinaryTreeTest {
         BinaryTree<String> Tree1 = createTestTree1();
         BinaryTree<String> Tree2 = createTestTree2();
         BinaryTree<String> Tree3 = createTestTree3();
+        BinaryTree<String> Tree4 = createTestTree4();
         
         assertEquals(4, Tree1.getHeight());
         assertEquals(4, Tree2.getHeight());
         assertEquals(4, Tree3.getHeight());
+        assertEquals(1, Tree4.getHeight());
+
+        assertEquals(4, Tree1.getHeight_callBinaryNodeMethod());
+        assertEquals(4, Tree2.getHeight_callBinaryNodeMethod());
+        assertEquals(4, Tree3.getHeight_callBinaryNodeMethod());
+        assertEquals(1, Tree4.getHeight_callBinaryNodeMethod());
     }
 
     @Test(expected = EmptyTreeException.class)
