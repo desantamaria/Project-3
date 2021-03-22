@@ -113,6 +113,15 @@ public class BinaryTreeTest {
 
         //Tests the Height in Node A of tree1
         assertEquals(4, Tree1.getRootNode().getHeight_binaryNodeMethod());
+
+        BinaryNode<String> nodeBTree1 = Tree1.getRootNode().getLeftChild(); // node B of tree 1
+        assertEquals(1, nodeBTree1.getHeight_binaryNodeMethod());
+
+        BinaryNode<String> nodeCTree1 = Tree1.getRootNode().getRightChild(); // node C of tree 1
+        assertEquals(3, nodeCTree1.getHeight_binaryNodeMethod());
+
+        BinaryNode<String> nodeD = Tree1.getRootNode().getRightChild().getLeftChild(); // node D of tree 1
+        assertEquals(2, nodeD.getHeight_binaryNodeMethod());
                 
         //Tests the Height in Node C of tree2
 
@@ -139,6 +148,7 @@ public class BinaryTreeTest {
         assertEquals(4, Tree2.getNumberOfNodes());
         //Tests the number of nodes in tree3
         assertEquals(4, Tree3.getNumberOfNodes());
+        
     } // end testGetNumberOfNodes
 
     @Test
@@ -163,6 +173,16 @@ public class BinaryTreeTest {
 
         //Tests the number of nodes in Node A of tree1
         assertEquals(8, Tree1.getRootNode().getNumberOfNodes_binaryNodeMethod());
+
+        BinaryNode<String> nodeBTree1 = Tree1.getRootNode().getLeftChild(); // node B of tree 1
+        assertEquals(1, nodeBTree1.getNumberOfNodes_binaryNodeMethod());
+
+        BinaryNode<String> nodeCTree1 = Tree1.getRootNode().getRightChild(); // node C of tree 1
+        assertEquals(6, nodeCTree1.getNumberOfNodes_binaryNodeMethod());
+
+        BinaryNode<String> nodeD = Tree1.getRootNode().getRightChild().getLeftChild(); // node D of tree 1
+        assertEquals(2, nodeD.getNumberOfNodes_binaryNodeMethod());
+
                 
         //Tests the number of nodes in Node C of tree2
 
