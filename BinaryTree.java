@@ -152,6 +152,9 @@ public class BinaryTree<T> implements BinaryTreeInterface<T> {
     public void postorderTraverse_callBinaryNodeMethod() {
         if (isEmpty())
             throw new EmptyTreeException();
+        
+        root.createTraversalArray(getNumberOfNodes());
+        
         root.postorderTraverse_binaryNodeMethod(root);
     } // end postorderTraverse_callBinaryNodeMethod
     

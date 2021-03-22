@@ -1,4 +1,5 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.Test;
 import org.junit.Assert;
 
@@ -7,11 +8,6 @@ public class BinaryTreeTest {
     {
         System.out.println("Test Trees:");
         System.out.println();
-    }
-
-    public <T> String callPostOrderTraversal(BinaryTree<T> tree) {
-
-        return "x";
     }
 
     public BinaryTree<String> createTestTree1()
@@ -63,40 +59,74 @@ public class BinaryTreeTest {
         return tree3;
     }
 
-    public BinaryTree<String> createTestTree4()
-    {
-        BinaryTree<String> tree4 = new BinaryTree<>();
-        tree4.setTree("A", null, null);
+    
+    @Test(expected = EmptyTreeException.class)
+    public void testEmptyTreeException() {
+        BinaryTree<String> testTreeEmpty = new BinaryTree<>();
+        System.out.println("created empty tree ...");
 
-        return tree4;
+        testTreeEmpty.postorderTraverse();
+        testTreeEmpty.postorderTraverse_callBinaryNodeMethod();
+        
+        testTreeEmpty.getHeight();
+        testTreeEmpty.getHeight_callBinaryNodeMethod();
+
+        testTreeEmpty.getNumberOfNodes();
+        testTreeEmpty.getNumberOfNodes_callBinaryNodeMethod();
+        testTreeEmpty.getRootNode().getNumberOfNodes_binaryNodeMethod();
     }
 
     @Test
-    public void testPostOrderTraversal()
+    public void testGetHeightTest() {
+        BinaryTree<String> Tree1 = createTestTree1();
+        BinaryTree<String> Tree2 = createTestTree2();
+        BinaryTree<String> Tree3 = createTestTree3();
+
+        assertEquals(4, Tree1.getHeight());
+        assertEquals(4, Tree2.getHeight());
+        assertEquals(4, Tree3.getHeight());
+    }
+    
+    @Test
+    public void testGetHeight_callBinaryNodeMethodTest() {
+        BinaryTree<String> Tree1 = createTestTree1();
+        BinaryTree<String> Tree2 = createTestTree2();
+        BinaryTree<String> Tree3 = createTestTree3();
+
+        assertEquals(4, Tree1.getHeight_callBinaryNodeMethod());
+        assertEquals(4, Tree2.getHeight_callBinaryNodeMethod());
+        assertEquals(4, Tree3.getHeight_callBinaryNodeMethod());
+    }
+
+    @Test
+    public void testGetNumberHeight_BinaryNodeMethod()
     {
         BinaryTree<String> Tree1 = createTestTree1();
         BinaryTree<String> Tree2 = createTestTree2();
         BinaryTree<String> Tree3 = createTestTree3();
-        BinaryTree<String> Tree4 = createTestTree4();
 
-        assertEquals(8, Tree1.getNumberOfNodes());
-        assertEquals(4, Tree2.getNumberOfNodes());
-        assertEquals(4, Tree3.getNumberOfNodes());
-        assertEquals(1, Tree4.getNumberOfNodes());
+        //Tests the Height in Node A of tree1
+        assertEquals(4, Tree1.getRootNode().getHeight_binaryNodeMethod());
+                
+        //Tests the Height in Node C of tree2
 
-        assertEquals(8, Tree1.getNumberOfNodes_callBinaryNodeMethod());
-        assertEquals(4, Tree2.getNumberOfNodes_callBinaryNodeMethod());
-        assertEquals(4, Tree3.getNumberOfNodes_callBinaryNodeMethod());
-        assertEquals(1, Tree4.getNumberOfNodes_callBinaryNodeMethod());
+        //Returns NodeC from Tree2
+        BinaryNode<String> nodeC = Tree2.getRootNode().getLeftChild().getLeftChild(); 
+        assertEquals(2, nodeC.getHeight_binaryNodeMethod());
+
+        //Tests the height in Node B of tree3
+
+        //Returns nodeB from Tree3
+        BinaryNode<String> nodeB = Tree3.getRootNode().getRightChild();
+        assertEquals(3, nodeB.getHeight_binaryNodeMethod());
     }
-
+    
     @Test
     public void testGetNumberOfNodes()
     {
         BinaryTree<String> Tree1 = createTestTree1();
         BinaryTree<String> Tree2 = createTestTree2();
         BinaryTree<String> Tree3 = createTestTree3();
-        BinaryTree<String> Tree4 = createTestTree4();
 
         //Tests the number of nodes in tree1
         assertEquals(8, Tree1.getNumberOfNodes());
@@ -104,12 +134,6 @@ public class BinaryTreeTest {
         assertEquals(4, Tree2.getNumberOfNodes());
         //Tests the number of nodes in tree3
         assertEquals(4, Tree3.getNumberOfNodes());
-        assertEquals(1, Tree4.getNumberOfNodes());
-
-        assertEquals(8, Tree1.getNumberOfNodes_callBinaryNodeMethod());
-        assertEquals(4, Tree2.getNumberOfNodes_callBinaryNodeMethod());
-        assertEquals(4, Tree3.getNumberOfNodes_callBinaryNodeMethod());
-        assertEquals(1, Tree4.getNumberOfNodes_callBinaryNodeMethod());
     }
 
     @Test
@@ -175,4 +199,35 @@ public class BinaryTreeTest {
         Assert.assertArrayEquals(expectedTraversalArray3, traversalArray3);
         System.out.println();
     }
+
+    @Test
+    public void testPostorderTraverseCallBinaryNodeMehtod()
+    {
+        BinaryTree<String> Tree1 = createTestTree1();
+        BinaryTree<String> Tree2 = createTestTree2();
+        BinaryTree<String> Tree3 = createTestTree3();
+
+        Object[] expectedTraversalArray1 = {"B", "F", "D", "G", "H", "E", "C", "A"};
+        Tree1.postorderTraverse_callBinaryNodeMethod();
+        Object[] traversalArray1 = Tree1.getRootNode().getTraversalArrayBinaryMethod();
+        Assert.assertArrayEquals(expectedTraversalArray1, traversalArray1);
+        System.out.println();
+
+        Object[] expectedTraversalArray2 = {"D", "C", "B", "A"};
+        Tree2.postorderTraverse_callBinaryNodeMethod();
+        Object[] traversalArray2 = Tree2.getRootNode().getTraversalArrayBinaryMethod();
+        Assert.assertArrayEquals(expectedTraversalArray2, traversalArray2);
+        System.out.println();
+
+        Object[] expectedTraversalArray3 = {"D", "C", "B", "A"};
+        Tree3.postorderTraverse_callBinaryNodeMethod();
+        Object[] traversalArray3 = Tree3.getRootNode().getTraversalArrayBinaryMethod();
+        Assert.assertArrayEquals(expectedTraversalArray3, traversalArray3);
+        System.out.println();
+    }
+    public static <T> Object[] returnPostorderTraverse_callBinaryNodeMethodResult(BinaryTree<T> tree){
+        Object[] expectedTraversalArray1 = {"B", "F", "D", "G", "H", "E", "C", "A"};
+        return expectedTraversalArray1;
+    }
+
 }

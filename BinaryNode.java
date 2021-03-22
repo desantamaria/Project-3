@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
 @author Daniel Santamaria
 @author Renwell Queyquep
@@ -14,6 +16,9 @@ class BinaryNode<T> {
     private T data;
     private BinaryNode<T> leftChild;  // Reference to left child
     private BinaryNode<T> rightChild; // Reference to right child
+
+    private T[] traversalArray;
+    private int topIndex = 0;
     
     public BinaryNode() {
         this(null); // Call next constructor
@@ -138,9 +143,21 @@ class BinaryNode<T> {
         if(node != null) {
             postorderTraverse_binaryNodeMethod(node.getLeftChild());
             postorderTraverse_binaryNodeMethod(node.getRightChild());
+            traversalArray[topIndex] = node.getData();
+            topIndex++; 
             System.out.println(node.getData());
         } // end if
     } // end postorderTraverse_binaryNodeMethod
+    
+    public void createTraversalArray(int numOfNodes) {
+        @SuppressWarnings("unchecked")
+        T[] tempTraversalArray = (T[])new Object[numOfNodes];
+        traversalArray = tempTraversalArray;
+    }
+
+    public T[] getTraversalArrayBinaryMethod() {
+        return Arrays.copyOf(traversalArray, traversalArray.length);
+    }
     
     /**
      * A Recursive Method in the BinaryNode Class Computes the height of the
