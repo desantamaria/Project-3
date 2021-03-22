@@ -59,16 +59,41 @@ public class BinaryTreeTest {
     @Test
     public void testGetNumberOfNodes()
     {
-        BinaryTree<String> emptyTree = new BinaryTree<>();
         BinaryTree<String> uninitializedTree;
         BinaryTree<String> Tree1 = createTestTree1();
         BinaryTree<String> Tree2 = createTestTree2();
         BinaryTree<String> Tree3 = createTestTree3();
 
-        assertEquals(0, emptyTree.getNumberOfNodes());
-        assertEquals(0, uninitializedTree.getNumberOfNodes());
+        //assertEquals(0, uninitializedTree.getNumberOfNodes());
         assertEquals(8, Tree1.getNumberOfNodes());
         assertEquals(4, Tree2.getNumberOfNodes());
         assertEquals(4, Tree3.getNumberOfNodes());
     }
+
+    @Test
+    public void testGetHeightTest() {
+        BinaryTree<String> Tree1 = createTestTree1();
+        BinaryTree<String> Tree2 = createTestTree2();
+        BinaryTree<String> Tree3 = createTestTree3();
+        
+        assertEquals(4, Tree1.getHeight());
+        assertEquals(4, Tree2.getHeight());
+        assertEquals(4, Tree3.getHeight());
+    }
+
+    @Test(expected = EmptyTreeException.class)
+    public void testEmptyTreeException() {
+        BinaryTree<String> testTreeEmpty = new BinaryTree<>();
+        System.out.println("created empty tree ...");
+        
+        testTreeEmpty.postorderTraverse();
+        testTreeEmpty.postorderTraverse_callBinaryNodeMethod();
+
+        testTreeEmpty.getHeight();
+        testTreeEmpty.getHeight_callBinaryNodeMethod();
+
+        testTreeEmpty.getNumberOfNodes();
+        testTreeEmpty.getNumberOfNodes_callBinaryNodeMethod();
+    }
+
 }
