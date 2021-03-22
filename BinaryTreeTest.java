@@ -7,6 +7,11 @@ public class BinaryTreeTest {
         System.out.println("Testing class");
     }
 
+    public <T> String callPostOrderTraversal(BinaryTree<T> tree) {
+
+        return "x";
+    }
+
     public BinaryTree<String> createTestTree1()
     {
         //Tree1
@@ -65,21 +70,42 @@ public class BinaryTreeTest {
     }
 
     @Test
-    public void testGetNumberOfNodes()
+    public void testPostOrderTraversal()
     {
-        BinaryTree<String> uninitializedTree;
         BinaryTree<String> Tree1 = createTestTree1();
         BinaryTree<String> Tree2 = createTestTree2();
         BinaryTree<String> Tree3 = createTestTree3();
+        BinaryTree<String> Tree4 = createTestTree4();
+
+        assertEquals(8, Tree1.getNumberOfNodes());
+        assertEquals(4, Tree2.getNumberOfNodes());
+        assertEquals(4, Tree3.getNumberOfNodes());
+        assertEquals(1, Tree4.getNumberOfNodes());
+
+        assertEquals(8, Tree1.getNumberOfNodes_callBinaryNodeMethod());
+        assertEquals(4, Tree2.getNumberOfNodes_callBinaryNodeMethod());
+        assertEquals(4, Tree3.getNumberOfNodes_callBinaryNodeMethod());
+        assertEquals(1, Tree4.getNumberOfNodes_callBinaryNodeMethod());
+    }
+
+    @Test
+    public void testGetNumberOfNodes()
+    {
+        BinaryTree<String> Tree1 = createTestTree1();
+        BinaryTree<String> Tree2 = createTestTree2();
+        BinaryTree<String> Tree3 = createTestTree3();
+        BinaryTree<String> Tree4 = createTestTree4();
 
         //assertEquals(0, uninitializedTree.getNumberOfNodes());
         assertEquals(8, Tree1.getNumberOfNodes());
         assertEquals(4, Tree2.getNumberOfNodes());
         assertEquals(4, Tree3.getNumberOfNodes());
+        assertEquals(1, Tree4.getNumberOfNodes());
 
         assertEquals(8, Tree1.getNumberOfNodes_callBinaryNodeMethod());
         assertEquals(4, Tree2.getNumberOfNodes_callBinaryNodeMethod());
         assertEquals(4, Tree3.getNumberOfNodes_callBinaryNodeMethod());
+        assertEquals(1, Tree4.getNumberOfNodes_callBinaryNodeMethod());
     }
 
     @Test
