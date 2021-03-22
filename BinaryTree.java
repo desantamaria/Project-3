@@ -1,3 +1,4 @@
+import java.util.Arrays;
 /**
 @author Daniel Santamaria
 @author Renwell Queyquep
@@ -12,6 +13,8 @@ CS2400
 
 public class BinaryTree<T> implements BinaryTreeInterface<T> {
     private BinaryNode<T> root;
+    private T[] traversalArray;
+    private int topIndex = 0;
     
     public BinaryTree() {
         root = null;
@@ -116,9 +119,17 @@ public class BinaryTree<T> implements BinaryTreeInterface<T> {
     public void postorderTraverse() {
         if (isEmpty())
             throw new EmptyTreeException();
+        @SuppressWarnings("unchecked")
+        T[] tempTraversalArray = (T[])new Object[getNumberOfNodes()];
+        traversalArray = tempTraversalArray;
+
         postorderTraverse(root);
     } // end postorderTraverse
     
+    public T[] getTraversalArray() {
+        return Arrays.copyOf(traversalArray, traversalArray.length);
+    }
+
     /**
      * A Recursive Method in the BinaryTree Class prints (using post-order
      * traversal) all nodes in the subtree rooted at this node.
@@ -127,6 +138,8 @@ public class BinaryTree<T> implements BinaryTreeInterface<T> {
         if(node != null) {
             postorderTraverse(node.getLeftChild());
             postorderTraverse(node.getRightChild());
+            traversalArray[topIndex] = node.getData();
+            topIndex++; 
             System.out.println(node.getData());
         } // end if
     } // end postorderTraverse
