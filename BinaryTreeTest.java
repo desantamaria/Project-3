@@ -58,6 +58,14 @@ public class BinaryTreeTest {
         return tree3;
     }
 
+    public BinaryTree<String> createTestTree4()
+    {
+        BinaryTree<String> tree4 = new BinaryTree<>();
+        tree4.setTree("A", null, null);
+
+        return tree4;
+    }
+
     @Test
     public void testGetNumberOfNodes()
     {
@@ -71,6 +79,10 @@ public class BinaryTreeTest {
         assertEquals(4, Tree2.getNumberOfNodes());
         //Tests the number of nodes in tree3
         assertEquals(4, Tree3.getNumberOfNodes());
+
+        assertEquals(8, Tree1.getNumberOfNodes_callBinaryNodeMethod());
+        assertEquals(4, Tree2.getNumberOfNodes_callBinaryNodeMethod());
+        assertEquals(4, Tree3.getNumberOfNodes_callBinaryNodeMethod());
     }
 
     @Test
