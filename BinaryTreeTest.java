@@ -2,7 +2,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.Test;
 import org.junit.Assert;
+/**
+@author Daniel Santamaria
+@author Renwell Queyquep
+CS2400
+3/22/21 
+ */
 
+/**
+ * A class of nodes whose entries has at most two children.
+ * One Left Child and One Right Child. 
+ */
 public class BinaryTreeTest {
     public static void main(String[] args)
     {
