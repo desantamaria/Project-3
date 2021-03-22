@@ -1,3 +1,5 @@
+package src;
+
 /**
 @author Daniel Santamaria
 @author Renwell Queyquep
@@ -81,10 +83,6 @@ public class DriverBT {
         System.out.println();
     } // end createTree
     
-    /**-------------------------------------------------------------------- */
-    /**
-     * Task 4: Create a tree case as shown in assignment 3
-     */
     public static void createTree2(BinaryTree<String> tree) {
         //Leaves 
         BinaryTree<String> bTree = new BinaryTree<>("B");

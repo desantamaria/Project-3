@@ -1,3 +1,5 @@
+package src;
+
 import java.util.Arrays;
 /**
 @author Daniel Santamaria
@@ -132,7 +134,7 @@ public class BinaryTree<T> implements BinaryTreeInterface<T> {
      */
     public T[] getTraversalArray() {
         return Arrays.copyOf(traversalArray, traversalArray.length);
-    }
+    } // end getTraversalArray
 
     /**
      * A Recursive Method in the BinaryTree Class prints (using post-order

@@ -1,3 +1,5 @@
+package src;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.Test;
@@ -10,18 +12,15 @@ CS2400
  */
 
 /**
- * A class of nodes whose entries has at most two children.
- * One Left Child and One Right Child. 
+ * A class of which tests all the new methods implemented using Junit. 
  */
 public class BinaryTreeTest {
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         System.out.println("Test Trees:");
         System.out.println();
-    }
+    } // end main
 
-    public BinaryTree<String> createTestTree1()
-    {
+    public BinaryTree<String> createTestTree1() {
         //Tree1
         BinaryTree<String> tree1 = new BinaryTree<>();
         //Leaves:
@@ -37,10 +36,9 @@ public class BinaryTreeTest {
         tree1.setTree("A", bTree1, cTree1);
 
         return tree1;
-    }
+    } // end createTest1
 
-    public BinaryTree<String> createTestTree2()
-    {
+    public BinaryTree<String> createTestTree2() {
         //Tree1
         BinaryTree<String> tree2 = new BinaryTree<>();
         //Leaves:
@@ -52,10 +50,9 @@ public class BinaryTreeTest {
         tree2.setTree("A", bTree2, null);
 
         return tree2;
-    }
+    } // end createTest2
 
-    public BinaryTree<String> createTestTree3()
-    {
+    public BinaryTree<String> createTestTree3() {
         //Tree1
         BinaryTree<String> tree3 = new BinaryTree<>();
         //Leaves:
@@ -67,7 +64,7 @@ public class BinaryTreeTest {
         tree3.setTree("A", null, bTree3);
 
         return tree3;
-    }
+    } // end createTest3
 
     
     @Test(expected = EmptyTreeException.class)
@@ -84,7 +81,7 @@ public class BinaryTreeTest {
         testTreeEmpty.getNumberOfNodes();
         testTreeEmpty.getNumberOfNodes_callBinaryNodeMethod();
         testTreeEmpty.getRootNode().getNumberOfNodes_binaryNodeMethod();
-    }
+    } // end testEmptyTreeException
 
     @Test
     public void testGetHeightTest() {
@@ -95,10 +92,10 @@ public class BinaryTreeTest {
         assertEquals(4, Tree1.getHeight());
         assertEquals(4, Tree2.getHeight());
         assertEquals(4, Tree3.getHeight());
-    }
+    } // end testGetHeightTest
     
     @Test
-    public void testGetHeight_callBinaryNodeMethodTest() {
+    public void testGetHeight_callBinaryNodeMethod() {
         BinaryTree<String> Tree1 = createTestTree1();
         BinaryTree<String> Tree2 = createTestTree2();
         BinaryTree<String> Tree3 = createTestTree3();
@@ -106,11 +103,10 @@ public class BinaryTreeTest {
         assertEquals(4, Tree1.getHeight_callBinaryNodeMethod());
         assertEquals(4, Tree2.getHeight_callBinaryNodeMethod());
         assertEquals(4, Tree3.getHeight_callBinaryNodeMethod());
-    }
+    } // end testGetHeight_callBinaryNodeMethod
 
     @Test
-    public void testGetNumberHeight_BinaryNodeMethod()
-    {
+    public void testGetNumberHeight_BinaryNodeMethod() {
         BinaryTree<String> Tree1 = createTestTree1();
         BinaryTree<String> Tree2 = createTestTree2();
         BinaryTree<String> Tree3 = createTestTree3();
@@ -129,11 +125,10 @@ public class BinaryTreeTest {
         //Returns nodeB from Tree3
         BinaryNode<String> nodeB = Tree3.getRootNode().getRightChild();
         assertEquals(3, nodeB.getHeight_binaryNodeMethod());
-    }
+    } // end testGetHeight_BinaryNodeMethod
     
     @Test
-    public void testGetNumberOfNodes()
-    {
+    public void testGetNumberOfNodes() {
         BinaryTree<String> Tree1 = createTestTree1();
         BinaryTree<String> Tree2 = createTestTree2();
         BinaryTree<String> Tree3 = createTestTree3();
@@ -144,11 +139,10 @@ public class BinaryTreeTest {
         assertEquals(4, Tree2.getNumberOfNodes());
         //Tests the number of nodes in tree3
         assertEquals(4, Tree3.getNumberOfNodes());
-    }
+    } // end testGetNumberOfNodes
 
     @Test
-    public void testGetNumberOfNodes_callBinaryNodeMethod()
-    {
+    public void testGetNumberOfNodes_callBinaryNodeMethod() {
         BinaryTree<String> Tree1 = createTestTree1();
         BinaryTree<String> Tree2 = createTestTree2();
         BinaryTree<String> Tree3 = createTestTree3();
@@ -159,11 +153,10 @@ public class BinaryTreeTest {
         assertEquals(4, Tree2.getNumberOfNodes_callBinaryNodeMethod());
         //Tests the number of nodes in tree3
         assertEquals(4, Tree3.getNumberOfNodes_callBinaryNodeMethod());
-    }
+    } // end testGetNumberOfNodes_callBinaryNodeMethod
 
     @Test
-    public void testGetNumberOfNodes_BinaryNodeMethod()
-    {
+    public void testGetNumberOfNodes_BinaryNodeMethod() {
         BinaryTree<String> Tree1 = createTestTree1();
         BinaryTree<String> Tree2 = createTestTree2();
         BinaryTree<String> Tree3 = createTestTree3();
@@ -182,11 +175,10 @@ public class BinaryTreeTest {
         //Returns nodeB from Tree3
         BinaryNode<String> nodeB = Tree3.getRootNode().getRightChild();
         assertEquals(3, nodeB.getNumberOfNodes_binaryNodeMethod());
-    }
+    } // end testGetNumberOfNodes_BinaryNodeMethod
 
     @Test
-    public void testPostorderTraverse()
-    {
+    public void testPostorderTraverse() {
         BinaryTree<String> Tree1 = createTestTree1();
         BinaryTree<String> Tree2 = createTestTree2();
         BinaryTree<String> Tree3 = createTestTree3();
@@ -208,11 +200,10 @@ public class BinaryTreeTest {
         Object[] traversalArray3 = Tree3.getTraversalArray();
         Assert.assertArrayEquals(expectedTraversalArray3, traversalArray3);
         System.out.println();
-    }
+    } // end testPostorderTraverse
 
     @Test
-    public void testPostorderTraverseCallBinaryNodeMehtod()
-    {
+    public void testPostorderTraverse_callBinaryNodeMehtod() {
         BinaryTree<String> Tree1 = createTestTree1();
         BinaryTree<String> Tree2 = createTestTree2();
         BinaryTree<String> Tree3 = createTestTree3();
@@ -234,10 +225,5 @@ public class BinaryTreeTest {
         Object[] traversalArray3 = Tree3.getRootNode().getTraversalArrayBinaryMethod();
         Assert.assertArrayEquals(expectedTraversalArray3, traversalArray3);
         System.out.println();
-    }
-    public static <T> Object[] returnPostorderTraverse_callBinaryNodeMethodResult(BinaryTree<T> tree){
-        Object[] expectedTraversalArray1 = {"B", "F", "D", "G", "H", "E", "C", "A"};
-        return expectedTraversalArray1;
-    }
-
-}
+    } // end testPostorderTraverse_callBinaryNodeMethod
+} // end BinaryTreeTest

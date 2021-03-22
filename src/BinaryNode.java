@@ -1,3 +1,5 @@
+package src;
+
 import java.util.Arrays;
 /**
 @author Daniel Santamaria
@@ -164,7 +166,7 @@ class BinaryNode<T> {
      */
     public T[] getTraversalArrayBinaryMethod() {
         return Arrays.copyOf(traversalArray, traversalArray.length);
-    }
+    } // endTraversalArrayBinaryMethod
     
     /**
      * A Recursive Method in the BinaryNode Class Computes the height of the
@@ -179,7 +181,7 @@ class BinaryNode<T> {
         
         if (data == null) {
             return 0;
-        } // end it  
+        } // end if  
 
         if(leftChild !=null)
             leftHeight = leftChild.getHeight_binaryNodeMethod();
