@@ -3,7 +3,7 @@ import java.util.Arrays;
 @author Daniel Santamaria
 @author Renwell Queyquep
 CS2400
-3/18/21 
+3/22/21 
  */
 
 /**
@@ -13,7 +13,7 @@ CS2400
 
 public class BinaryTree<T> implements BinaryTreeInterface<T> {
     private BinaryNode<T> root;
-    private T[] traversalArray;
+    private T[] traversalArray; // array consisting of values of the postorder travaersal
     private int topIndex = 0;
     
     public BinaryTree() {
@@ -126,6 +126,10 @@ public class BinaryTree<T> implements BinaryTreeInterface<T> {
         postorderTraverse(root);
     } // end postorderTraverse
     
+    /**
+     * returns the values of the Postorder Traversal.
+     * @return a copy of traversalArray.
+     */
     public T[] getTraversalArray() {
         return Arrays.copyOf(traversalArray, traversalArray.length);
     }

@@ -1,10 +1,9 @@
 import java.util.Arrays;
-
 /**
 @author Daniel Santamaria
 @author Renwell Queyquep
 CS2400
-3/18/21 
+3/22/21 
  */
 
 /**
@@ -143,18 +142,26 @@ class BinaryNode<T> {
         if(node != null) {
             postorderTraverse_binaryNodeMethod(node.getLeftChild());
             postorderTraverse_binaryNodeMethod(node.getRightChild());
-            traversalArray[topIndex] = node.getData();
+            traversalArray[topIndex] = node.getData(); // adds value to the traversalArray so it can be returned for testing.
             topIndex++; 
             System.out.println(node.getData());
         } // end if
     } // end postorderTraverse_binaryNodeMethod
     
+    /**
+     * Sets the index length of traversalArray using the number of nodes given by the BinaryTree.
+     * @param numOfNodes numberofnodes() from binaryTree to be passed through(as an int).
+     */
     public void createTraversalArray(int numOfNodes) {
         @SuppressWarnings("unchecked")
         T[] tempTraversalArray = (T[])new Object[numOfNodes];
         traversalArray = tempTraversalArray;
     }
 
+    /**
+     * returns the values of the Postorder Traversal.
+     * @return a copy of traversalArray.
+     */
     public T[] getTraversalArrayBinaryMethod() {
         return Arrays.copyOf(traversalArray, traversalArray.length);
     }
